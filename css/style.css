@@ -14,9 +14,9 @@ body {
 }
 
 .container {
-  text-align: center;
   width: 90%;
   max-width: 360px;
+  text-align: center;
 }
 
 .guide-text {

@@ -4,9 +4,18 @@ const progress = document.getElementById("progress");
 const current = document.getElementById("current");
 const percent = document.getElementById("percent");
 
+let isPlaying = false;
+
 playBtn.addEventListener("click", () => {
-  audio.play();
-  playBtn.textContent = "❚❚";
+  if (!isPlaying) {
+    audio.play();
+    playBtn.textContent = "❚❚";
+    isPlaying = true;
+  } else {
+    audio.pause();
+    playBtn.textContent = "▶";
+    isPlaying = false;
+  }
 });
 
 audio.addEventListener("timeupdate", () => {
@@ -16,12 +25,12 @@ audio.addEventListener("timeupdate", () => {
   const p = dur ? (cur / dur) * 100 : 0;
   progress.style.width = `${p}%`;
   percent.textContent = `${Math.floor(p)}%`;
-
   current.textContent = formatTime(cur);
 });
 
 audio.addEventListener("ended", () => {
   playBtn.textContent = "▶";
+  isPlaying = false;
 });
 
 function formatTime(sec) {

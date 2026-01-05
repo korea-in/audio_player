@@ -4,32 +4,68 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Audio Guide</title>
-
   <link rel="stylesheet" href="./css/style.css" />
 </head>
 <body>
 
-  <div class="container">
-    <p class="guide-text">
-      안내를 위해<br />
-      아래 <strong>재생 버튼</strong>을 눌러주세요
-    </p>
+<div class="container">
 
-    <button id="playBtn" class="play-btn">▶</button>
+  <!-- 상단 관광지 선택 영역 -->
+  <div class="spot-grid">
+    <button class="spot-btn" data-audio="차이나타운.mp3" style="background-image:url('./images/차이나타운.jpg')">
+      <div class="overlay"></div>
+      <span>차이나타운</span>
+    </button>
 
-    <div class="progress-wrap">
-      <span id="current">0:00</span>
+    <button class="spot-btn" data-audio="개항장.mp3" style="background-image:url('./images/개항장.jpg')">
+      <div class="overlay"></div>
+      <span>개항장</span>
+    </button>
 
-      <div class="progress-bar">
-        <div id="progress"></div>
-      </div>
+    <button class="spot-btn" data-audio="월미도.mp3" style="background-image:url('./images/월미도.jpg')">
+      <div class="overlay"></div>
+      <span>월미도</span>
+    </button>
 
-      <span id="percent">0%</span>
-    </div>
+    <button class="spot-btn" data-audio="송도센트럴파크.mp3" style="background-image:url('./images/송도센트럴파크.jpg')">
+      <div class="overlay"></div>
+      <span>송도 센트럴파크</span>
+    </button>
 
-    <audio id="audio" src="./mp3/music.mp3" playsinline></audio>
+    <button class="spot-btn" data-audio="을왕리.mp3" style="background-image:url('./images/을왕리.jpg')">
+      <div class="overlay"></div>
+      <span>을왕리 해수욕장</span>
+    </button>
+
+    <button class="spot-btn" data-audio="인천국제공항.mp3" style="background-image:url('./images/인천국제공항.jpg')">
+      <div class="overlay"></div>
+      <span>인천국제공항</span>
+    </button>
   </div>
 
-  <script src="./js/player.js"></script>
+  <!-- 하단 오디오 플레이어 -->
+  <div class="audio-player">
+    <p class="guide-text">
+      관광지 버튼을 클릭하여 오디오 가이드를 들어보세요.
+    </p>
+
+    <div class="control-row">
+      <button id="playBtn" class="play-btn">▶</button>
+
+      <div class="progress-wrap">
+        <span id="current">0:00</span>
+        <div class="progress-bar">
+          <div id="progress"></div>
+        </div>
+        <span id="percent">0%</span>
+      </div>
+    </div>
+
+    <audio id="audio" playsinline></audio>
+  </div>
+
+</div>
+
+<script src="./js/player.js"></script>
 </body>
 </html>
